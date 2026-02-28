@@ -3,14 +3,14 @@
 using namespace std;
 
 int main(void){
-    double a, b, res;
+    int a, b, res;
 
     cout << "Escreva os números que você quer dividir: ";
     cin >> a >> b;
 
-    res = a / b;
+    res = a % b;
 
-    cout << "A divisão dos números é " << res << "\n";
+    cout << "O resto da divisão dos números é " <<  res << "\n";
 
     return 0;
 }

@@ -5,11 +5,11 @@ using namespace std;
 int main(void){
     int a, b;
 
-    cout << "Escreva os números que quer comparar: ";
+    cout << "Me diga dois números: ";
     cin >> a >> b;
 
     if (a > b){
-        cout << a << " é maior do que " << b << "\n";
+        cout << a << " é maior que " << b << "\n";
     } else if (a < b){
         cout << a << " é menor que " << b << "\n";
     } else {
