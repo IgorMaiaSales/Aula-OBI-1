@@ -3,12 +3,14 @@
 using namespace std;
 
 int main(void){
-    int a, b;
+    double a, b, res;
 
-    cout << "Quais os números que você quer somar? ";
+    cout << "Escreva os números que você quer dividir: ";
     cin >> a >> b;
-    
-    cout << "A soma dos números entregues é: " << (a + b) << "\n";
-    
+
+    res = a / b;
+
+    cout << "A divisão dos números é " << res << "\n";
+
     return 0;
 }
