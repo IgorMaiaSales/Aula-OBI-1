@@ -11,12 +11,8 @@ int main(void){
     cout << "Qual o expoente da potência? ";
     cin >> exp;
 
-    int i = 0;
-
-    while(i < exp){
+    for(int i = 0; i < exp; i++){
         res *= base;
-
-        i ++;
     }
 
     cout << base << " elevado a " << exp << " é igual a " << res << "\n";

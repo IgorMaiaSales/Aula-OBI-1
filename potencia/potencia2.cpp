@@ -3,20 +3,15 @@
 using namespace std;
 
 int main(void){
-    int base = 2;
     long long res = 1;
-    char r;
+    char letra;
 
-    while(true){
+    do{
         cout << "res = " << res << "\n";
-        cin >> r;
+        cin >> letra; 
 
-        if(r != 'Y' && r != 'y'){
-            break;
-        }
-
-        res = res * base;
-    }
+        res *= 2;
+    }while(letra == 'y' || letra == 'Y');
 
     return 0;
 }
