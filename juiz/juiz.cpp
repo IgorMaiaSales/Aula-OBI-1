@@ -3,33 +3,33 @@
 using namespace std;
 
 int main(void){
-    int nota, idade;
+    int idade, nota;
 
     cout << "Qual a sua idade? ";
     cin >> idade;
 
-    cout << "Qual a nota da sua prova? ";
+    cout << "Qual a sua nota? ";
     cin >> nota;
 
-    if (nota > 100 || nota < 0 || idade <= 0) {
-        cout << "A nota ou idade está em formato inválido!\n";
+    if(!(idade < 18)){
+        cout << "Você não pode participar da modalidade Pj/P1! \n";
 
         return 0;
     }
 
-    if (!(idade <= 18)) {
-        cout << "Você pertence à modalidade Programação Sênior!\n";
+    if(nota < 0 || nota > 100){
+        cout << "Nota fora do padrão!! \n";
 
         return 0;
     }
 
-    if (idade <= 18 && nota >= 80){
-        cout << "Você ganhou uma medalha na OBI!\n";
+    if(nota >= 80){
+        cout << "Parabéns!!! Você ganhou uma medalha na OBI!!! \n";
 
         return 0;
     }
 
-    cout << "Infelizmente você não ganhou uma medalha na OBI. Tente novamente próximo ano!\n";
-
+    cout << "Tente novamente próximo ano!!! \n";
+    
     return 0;
 }
