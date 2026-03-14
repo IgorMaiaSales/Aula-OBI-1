@@ -5,17 +5,17 @@ using namespace std;
 int main(void){
     int base, exp, res = 1;
 
-    cout << "Qual a base da potência? ";
+    cout << "Qual a base? ";
     cin >> base;
 
-    cout << "Qual o expoente da potência? ";
+    cout << "Qual o expoente? ";
     cin >> exp;
 
     for(int i = 0; i < exp; i++){
-        res *= base;
+        res *= base; // res = res * base
     }
 
-    cout << base << " elevado a " << exp << " é igual a " << res << "\n";
+    cout << "A resposta é " << res << "\n";
 
     return 0;
 }

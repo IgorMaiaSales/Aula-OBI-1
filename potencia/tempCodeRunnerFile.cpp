@@ -1,1 +1,1 @@
-cin >> letra; 
+res *= base; // res = res * base
