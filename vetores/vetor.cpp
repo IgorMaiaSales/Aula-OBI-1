@@ -4,19 +4,22 @@
 using namespace std;
 
 int main(void){
-    int n;
+    vector<int> vec;
+    vec.reseve(5)
 
-    cout << "Quantos inteiros você vai escrever? ";
-    cin >> n;
+    cout << "Escreva números naturais.\n";
 
-    int v[n];
+    int value;
 
-    for(int i = 0; i < n; i++){
-        cin >> v[i];
-    }
+    do{
+        cin >> value;
+        vec.push_back(value);
+    }while(vec.back() > 0);
 
-    for(int i = n-1; i >= 0; i--){
-        cout << v[i] << " ";
+    vec.pop_back();
+
+    for(int i = 0; i < vec.size(); i++){
+        cout << vec[i] << " ";
     }
 
     cout << "\n";
