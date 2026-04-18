@@ -1,27 +1,26 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main(void){
     int N, X, soma = 0;
+    vector<int> num;
 
     cin >> N;
-
-    int num[N], j = 0;
 
     for(int i = 0; i < N; i++){
         cin >> X;
 
         if(X != 0){
-            num[j] = X;
-            j++;
+            num.push_back(X);
         }else{
-            j--;
+            num.pop_back();
         }
     }
 
-    for(int i = 0; i < j; i++){
-        soma += num[i];
+    for(vector<int>::iterator i = num.begin(); i != num.end(); i++){
+        soma += *i;
     }
 
     cout << soma << "\n";
