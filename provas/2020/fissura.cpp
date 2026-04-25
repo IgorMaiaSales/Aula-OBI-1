@@ -17,9 +17,16 @@ int main(void){
         }
     }
 
-    if((int)M[0][0] <= F){
+    if((M[0][0] - '0') <= F){
         M[0][0] = '*';
         invade(&M[0][0], 0, 0, N, F);
+    }
+
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            cout << M[i][j];
+        }
+        cout << "\n";
     }
 
 }
@@ -30,32 +37,32 @@ void invade(char* lava, int i, int j, int N, int F){
 
     // Norte
     if(i != 0){
-        if(*lava[-N] != "*" && (int)*lava[-N] < F){
-            *lava[-N] = "*";
+        if(lava[-N] != '*' && (lava[-N] - '0') <= F){
+            lava[-N] = '*';
             n = true;
         }
     }
 
     // Oeste
     if(j != 0){
-        if(*lava[-1] != '*' && (int)*lava[-1] < F){
-            *lava[-1] = '*';
+        if(lava[-1] != '*' && (lava[-1] - '0') <= F){
+            lava[-1] = '*';
             o = true;
         }
     }
 
     // Sul
     if(i != (N-1)){
-        if(*lava[N] != '*' && (int)*lava[N] < F){
-            *lava[N] = '*';
+        if(lava[N] != '*' && (lava[N] - '0') <= F){
+            lava[N] = '*';
             s = true;
         }
     }
 
     // Leste
     if(j != (N-1)){
-        if(*lava[1] != "*" && (int)*lava[1] < F){
-            *lava[1] = '*';
+        if(lava[1] != '*' && (lava[1] - '0') <= F){
+            lava[1] = '*';
             l = true;
         }
     }
