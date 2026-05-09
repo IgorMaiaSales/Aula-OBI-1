@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void invade(char* lava, int i, int j, int N, int F);
+void explorar(char* lava, int i, int j, int N, int F);
 
 int main(void){
     int N, F;
@@ -19,7 +19,7 @@ int main(void){
 
     if((M[0][0] - '0') <= F){
         M[0][0] = '*';
-        invade(&M[0][0], 0, 0, N, F);
+        explorar(&M[0][0], 0, 0, N, F);
     }
 
     for(int i = 0; i < N; i++){
@@ -29,55 +29,30 @@ int main(void){
         cout << "\n";
     }
 
+    return 0;
 }
 
-// tipo_retorno nome_func(tipo argumento1, tipo argumento2, ...)
-void invade(char* lava, int i, int j, int N, int F){
-    bool n = false, s = false, l = false, o = false;
-
-    // Norte
-    if(i != 0){
-        if(lava[-N] != '*' && (lava[-N] - '0') <= F){
-            lava[-N] = '*';
-            n = true;
-        }
+void explorar(char* lava, int i, int j, int N, int F){
+    
+    if(i != 0 && lava[-N] != '*' && (lava[-N] - '0') <= F){
+        lava[-N] = '*';
+        explorar(&lava[-N], i-1, j, N, F);
     }
 
-    // Oeste
-    if(j != 0){
-        if(lava[-1] != '*' && (lava[-1] - '0') <= F){
-            lava[-1] = '*';
-            o = true;
-        }
+    if(j != 0 && lava[-1] != '*' && (lava[-1] - '0') <= F){
+        lava[-1] = '*';
+        explorar(&lava[-1], i, j-1, N, F);
     }
 
-    // Sul
-    if(i != (N-1)){
-        if(lava[N] != '*' && (lava[N] - '0') <= F){
-            lava[N] = '*';
-            s = true;
-        }
+    if(i != (N-1) && lava[N] != '*' && (lava[N] - '0') <= F){
+        lava[N] = '*';
+        explorar(&lava[N], i+1, j, N, F);
     }
 
-    // Leste
-    if(j != (N-1)){
-        if(lava[1] != '*' && (lava[1] - '0') <= F){
-            lava[1] = '*';
-            l = true;
-        }
+    if(j != (N-1) && lava[1] != '*' && (lava[1] - '0') <= F){
+        lava[1] = '*';
+        explorar(&lava[1], i, j+1, N, F);
     }
 
-    if(n == true){
-        invade(&lava[-N], i-1, j, N, F);
-    }
-    if(o == true){
-        invade(&lava[-1], i, j-1, N, F);
-    }
-    if(s == true){
-        invade(&lava[N], i+1, j, N, F);
-    }
-    if(l == true){
-        invade(&lava[1], i, j+1, N, F);
-    }
     return;
 }

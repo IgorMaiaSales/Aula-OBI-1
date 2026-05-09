@@ -2,16 +2,15 @@
 
 using namespace std;
 
+const int N_MAX = 500;
+
+char M[N_MAX][N_MAX];
+
 int N, F;
 
-const int MAX = 500;
-
-int M[MAX][MAX];
-
-void invade(int i, int j);
+void explorar(int i, int j);
 
 int main(void){
-
     cin >> N >> F;
 
     for(int i = 0; i < N; i++){
@@ -20,9 +19,9 @@ int main(void){
         }
     }
 
-    if((int)M[0][0] <= F){
+    if((M[0][0] - '0') <= F){
         M[0][0] = '*';
-        invade(0, 0);
+        explorar(0, 0);
     }
 
     for(int i = 0; i < N; i++){
@@ -35,53 +34,27 @@ int main(void){
     return 0;
 }
 
-// tipo_retorno nome_func(tipo argumento1, tipo argumento2, ...)
-void invade(int i, int j){
-    bool n = false, s = false, l = false, o = false;
-
-    // Norte
-    if(i != 0){
-        if(M[i-1][j] != '*' && (int)M[i-1][j] < F){
-            M[i-1][j] = '*';
-            n = true;
-        }
+void explorar(int i, int j){
+    
+    if(i != 0 && M[i-1][j] != '*' && (M[i-1][j] - '0') <= F){
+        M[i-1][j] = '*';
+        explorar(i-1, j);
     }
 
-    // Oeste
-    if(j != 0){
-        if(M[i][j-1] != '*' && (int)M[i][j-1] < F){
-            M[i][j-1] = '*';
-            o = true;
-        }
+    if(j != 0 && M[i][j-1] != '*' && (M[i][j-1] - '0') <= F){
+        M[i][j-1] = '*';
+        explorar(i, j-1);
     }
 
-    // Sul
-    if(i != (N-1)){
-        if(M[i+1][j] != '*' && (int)M[i+1][j] < F){
-            M[i+1][j] = '*';
-            s = true;
-        }
+    if(i != (N-1) && M[i+1][j] != '*' && (M[i+1][j] - '0') <= F){
+        M[i+1][j] = '*';
+        explorar(i+1, j);
     }
 
-    // Leste
-    if(j != (N-1)){
-        if(M[i][j+1] != '*' && (int)M[i][j+1] < F){
-            M[i][j+1] = '*';
-            l = true;
-        }
+    if(j != (N-1) && M[i][j+1] != '*' && (M[i][j+1] - '0') <= F){
+        M[i][j+1] = '*';
+        explorar(i, j+1);
     }
 
-    if(n == true){
-        invade(i-1, j);
-    }
-    if(o == true){
-        invade(i, j-1);
-    }
-    if(s == true){
-        invade(i+1, j);
-    }
-    if(l == true){
-        invade(i, j+1);
-    }
     return;
 }

@@ -9,7 +9,7 @@ int main(void){
 
     p = &i;
 
-    cout << i << " " << *p << "\n";
+    cout << i << " " << *p << " " << p[0] << "\n";
 
     return 0;
 }
