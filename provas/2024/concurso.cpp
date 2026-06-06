@@ -14,8 +14,7 @@ int main(void){
     }
 
     for(int j = 0; j < N-1; j++){
-        for(int i = 0; i < N-4 2
-1 2 3 4j-1; i++){
+        for(int i = 0; i < N-j-1; i++){
             if(A[i] > A[i+1]){
                 V = A[i];
                 A[i] = A[i+1];
