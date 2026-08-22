@@ -25,11 +25,9 @@ int main(void){
         index[i]++;
     }
 
-    int i;
-
     for(int j = F; j < N; j++){
-        res = min_element(PTotal.beguin(), PTotal.beguin() + N-1);
-        i = distance(PTotal.beguin(), res);
+        auto res = min_element(PTotal.begin(), PTotal.begin() + N);
+        auto i = distance(PTotal.begin(), res);
         M[i][index[i]] = P[i];
         PTotal[i] += P[i];
         index[i]++;
