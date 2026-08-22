@@ -6,27 +6,19 @@ int main(void){
     int N, M;
 
     cin >> N;
-
-    char P[N];
-
-    for(int i = 0; i < N; i++){
-        cin >> P[i];
-    }
+    string P;
+    cin >> P;
 
     cin >> M;
-
-    char S[M];
-
-    for(int i = 0; i < M; i++){
-        cin >> S[i];
-    }
+    string S;
+    cin >> S;
 
     int count = 0;
 
-    int menor = min(M, N);
+    int menor = min(S.size(), P.size());
 
     for(int i = 0; i < menor; i++){
-        if(P[i] != S[i]){
+        if(P.at(i) != S.at(i)){
             break;
         }
 
